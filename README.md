@@ -45,7 +45,7 @@ $headers = @{ "X-API-Key" = $env:AMS_COLLABORATOR_KEY; "X-User" = "lucas" }
 Invoke-RestMethod http://127.0.0.1:8000/sinais -Method Post -Headers $headers -ContentType 'application/json' -Body '{"palavra":"AMIGO","assunto":"Pessoas","descricao_textual":"Descrição do movimento e da configuração de mão."}'
 ```
 
-Use o identificador retornado no formulário de `POST /sinais/{id}/variacoes` no Swagger. O Administrador consulta `/revisao` e envia, por exemplo, `{"decisao":"Aprovado"}` para as rotas de revisão. Para testar os fluxos automaticamente após instalar as dependências, execute `python -m unittest discover -s tests -v`.
+Use o identificador retornado no formulário de `POST /sinais/{id}/variacoes` no Swagger. O Administrador consulta `/revisao` e envia, por exemplo, `{"decisao":"Aprovado"}` para as rotas de revisão. Execute `python -m unittest discover -s tests -v` para testar as regras e persistência. Os testes HTTP são opcionais e exigem sockets locais disponíveis: no PowerShell, defina `$env:AMS_HTTP_TESTS = "1"` e repita o comando. Remova a variável depois com `Remove-Item Env:AMS_HTTP_TESTS`.
 
 ## Limites do protótipo
 

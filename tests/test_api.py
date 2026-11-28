@@ -7,6 +7,7 @@ import unittest
 from fastapi.testclient import TestClient
 
 
+@unittest.skipUnless(os.getenv("AMS_HTTP_TESTS") == "1", "Teste HTTP: defina AMS_HTTP_TESTS=1 em um terminal com sockets disponíveis")
 class APIFlowTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
